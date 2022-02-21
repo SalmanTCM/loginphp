@@ -1,27 +1,28 @@
 <?php
-    include 'config.php';
-
-    if(isset($_post['submit'])){
-        $username=$_post['username'];
-        $username=$_post['email'];
-        $username=md5($_post['password']);
-        $username=md5($_post['cpassword']);
+ session_start();
+  $_SESSION;
+    include("config.php");/* connect config.php */
+    include("functions.php");/* connect functions.php */
+    $user_data=check_login($con);
+    if($_SERVER['REQUEST_METHOD']=="POS")
+    {
+        //something was posted
+       $user_name=$_POST['user_name'];
+       $email=$_POST['email'];
+       $password=md5($_post['password']);
+       $cpassword=md5($_post['cpassword']);
         if($password==$cpassword)
         {
-            $sql="INSERT INTO users(id,username,email,password)
-            VALUES(?,?,?.?)";
-            $result=mysqli_quary($conn,$sql);
-            if(!$result)
-            {
-                echo "<script>alert('connection faild')</script>";
-            }
-            else
-              echo "<script>alert('cpassword is not matched')</script>";
+            $user_id=random_num(20);
+            $sql="INSERT INTO users(id,username,email,password) VALUES(?,?,?.?)";
+            mysqli_query($sql);
+            header("Location: login.php");
+            die;
 
-           
         }
-
     }
+
+
 ?>
 
 
@@ -39,7 +40,7 @@
          <form action="" class="login_email">
              <p>Register</p>
                 <div class="input_group">
-                    <input type="text" placeholder="Username" name="username">
+                    <input type="text" placeholder="Username" name="user_name">
                 </div>
                 <div class="input_group">
                     <input type="email" placeholder="email" name="email">

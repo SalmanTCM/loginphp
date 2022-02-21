@@ -4,6 +4,11 @@
     include("config.php");/* connect config.php */
     include("functions.php");/* connect functions.php */
     $user_data=check_login($con);
+    if($_SERVER['REQUEST_METHOD']=="POS")
+    {
+        //something was posted
+        $_POST[''];
+    }
 
 
 ?>
