@@ -1,3 +1,13 @@
+<?php
+ session_start();
+  $_SESSION;
+    include("config.php");/* connect config.php */
+    include("functions.php");/* connect functions.php */
+    $user_data=check_login($con);
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +18,7 @@
     <title>login</title>
 </head>
 <body>
-     <div class="container">
+     <!-- <div class="container">
          <form action="" method="post" class="login_email">
              <p>Log in</p>
                 <div class="input_group">
@@ -22,6 +32,6 @@
                 </div>
                 <a href="register.php">register here</a>
          </form>
-     </div>
+     </div> -->
 </body>
 </html>

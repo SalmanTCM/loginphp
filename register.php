@@ -8,8 +8,8 @@
         $username=md5($_post['cpassword']);
         if($password==$cpassword)
         {
-            $sql="INSERT INTO users(username,email,password)
-            VALUES(?,?,?)";
+            $sql="INSERT INTO users(id,username,email,password)
+            VALUES(?,?,?.?)";
             $result=mysqli_quary($conn,$sql);
             if(!$result)
             {

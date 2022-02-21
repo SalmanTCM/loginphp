@@ -1,11 +1,11 @@
 <?php
 define("HOSTNAME","localhost");
 define("USERNAME","root");
-define("PASSWORD","password");
+define("PASSWORD","");
 define("DBNAME","login");
 
-$conn = mysqli_connect(HOSTNAME,USERNAME,PASSWORD,DBNAME);
-if(!$conn){
+$con = mysqli_connect(HOSTNAME,USERNAME,PASSWORD,DBNAME);
+if(!$con){
     die("<script>alert('connection faild')</script>"); 
 }
 ?>
