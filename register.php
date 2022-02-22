@@ -1,30 +1,45 @@
-<?php
-    include 'config.php';
 
-    if(isset($_post['submit'])){
-        $username=$_post['username'];
-        $username=$_post['email'];
-        $username=md5($_post['password']);
-        $username=md5($_post['cpassword']);
+<?php
+ session_start();
+//   $_SESSION;
+    include("config.php");/* connect config.php */
+    include("functions.php");/* connect functions.php */
+    // $user_data=check_login($con);
+    if($_SERVER['REQUEST_METHOD'] == "POST")
+    {
+        //something was posted
+
+        
+       $user_name=mysqli_real_escape_string($con, $_POST['username']); 
+       $email=mysqli_real_escape_string($con, $_POST['email']);
+       $password=md5(mysqli_real_escape_string($con, $_POST['password']));
+       $cpassword=md5(mysqli_real_escape_string($con, $_POST['cpassword']));
         if($password==$cpassword)
         {
-            $sql="INSERT INTO users(id,username,email,password)
-            VALUES(?,?,?.?)";
-            $result=mysqli_quary($conn,$sql);
-            if(!$result)
-            {
-                echo "<script>alert('connection faild')</script>";
-            }
-            else
-              echo "<script>alert('cpassword is not matched')</script>";
+            $user_id=random_num(20);
+            $stmt = $con->prepare("INSERT INTO users (user_name, email, passoward) VALUES (?, ?, ?)");
+            $stmt->bind_param("ssi", $user_name, $email, $password);
 
+
+            //$sql=$con->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
+            //$sql->bind_param("sss", $user_name, $email, $password);
+            // $sql->bindParam($user_id);
+            // $sql->bindParam($username);
+            // $sql->bindParam($email);
+            // $sql->bindParam($password);
+            $stmt->execute();
+            // mysqli_query($sql);
            
+            // header("Location: login.php");
+            $stmt->close();
+            $con->close();
+            die;
+
         }
-
     }
+
+
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +51,7 @@
 </head>
 <body>
      <div class="container">
-         <form action="" class="login_email">
+         <form action="login.php" class="login_email" method="post">
              <p>Register</p>
                 <div class="input_group">
                     <input type="text" placeholder="Username" name="username">
@@ -51,7 +66,7 @@
                     <input type="password" placeholder="confirm password" name="cpassword">
                 </div>
                 <div class="input_group">
-                    <button class="btn" name="submit"> Register</button>
+                    <button class="btn" name="submit" href="login.php"> Register</button>
                 </div>
                 <a href="index.php">Login</a>
          </form>
