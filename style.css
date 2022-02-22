@@ -1,9 +1,49 @@
 p{
     margin: 10px 10px;
     font-size: 30px;
-    color: brown;
+    color: #fff;
+}
+a{
+    text-decoration: none;
 }
 .input_group{
     margin: 10px 10px;
    
+}
+.input_group{
+
+    box-sizing: border-box;
+}
+#text{
+
+    height: 25px;
+    border-radius: 5px;
+    padding: 4px;
+    border: solid thin #aaa;
+    width: 100%;
+}
+
+#button{
+
+    padding: 10px;
+    width: 100px;
+    color: white;
+    background-color: lightblue;
+    border: none;
+}
+
+#box{
+
+    margin: 0px 50px;
+    background-color: #f54d27;
+    margin: auto;
+    width: 300px;
+    padding: 20px;
+}
+.buttons{
+    display: flex;
+}
+.btn{
+    margin: 10px 0px;
+    margin-right: 20px;
 }

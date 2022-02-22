@@ -50,25 +50,30 @@
     <title>Register</title>
 </head>
 <body>
-     <div class="container">
-         <form action="login.php" class="login_email" method="post">
+     <div class="container" id="box">
+         <form action="" class="login_email" method="post">
              <p>Register</p>
                 <div class="input_group">
-                    <input type="text" placeholder="Username" name="username">
+                    <input id="text" type="text" placeholder="Username" name="username">
                 </div>
                 <div class="input_group">
-                    <input type="email" placeholder="email" name="email">
+                    <input id="text" type="email" placeholder="email" name="email">
                 </div>
                 <div class="input_group">
-                    <input type="password" placeholder="password" name="password">
+                    <input id="text" type="password" placeholder="password" name="password">
                 </div>
                 <div class="input_group">
-                    <input type="password" placeholder="confirm password" name="cpassword">
+                    <input id="text" type="password" placeholder="confirm password" name="cpassword">
                 </div>
-                <div class="input_group">
-                    <button class="btn" name="submit" href="login.php"> Register</button>
+                <div class="input_group buttons">
+                    <div>
+                    <button class="btn" name="submit" href="index.php"> Register</button>
+                    </div>
+                     <div>
+                     <button class="btn" name="submit" > <a href="login.php">Sign in</a> </button>
+                     </div>   
                 </div>
-                <a href="index.php">Login</a>
+                
          </form>
      </div>
 </body>

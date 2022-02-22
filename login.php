@@ -13,19 +13,24 @@
     <title>login</title>
 </head>
 <body>
-     <div class="container">
-         <form action="" method="post" class="login_email">
+     <div class="container" id="box">
+         <form action="" method="post" class="login_email" >
              <p>Log in</p>
                 <div class="input_group">
-                    <input type="email" placeholder="Email">
+                    <input id="text" type="email" placeholder="Email">
                 </div>
                 <div class="input_group">
-                    <input type="password" placeholder="password">
+                    <input  id="text" type="password" placeholder="password">
                 </div>
-                <div class="input_group">
-                    <button>LOGIN</button>
+                <div class="input_group buttons">
+                <div>
+                    <button class="btn" name="submit" href="index.php"> Sign In</button>
+                    </div>
+                     <div>
+                     <button class="btn" name="submit"> <a href="register.php">Register</a> </button>
+                     </div>  
                 </div>
-                <a href="register.php">register here</a>
+                
          </form>
      </div>
 </body>
